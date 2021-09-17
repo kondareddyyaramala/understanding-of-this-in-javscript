@@ -11,14 +11,14 @@ appDiv.innerHTML = `<h1>JS Starter</h1>`;
 const v = {
   af: 'Hello',
   bg: 'World',
-  call: function() {
+  call: function () {
     let a = 'Method';
     console.log('Inside the method function', this);
     return {
       val: 'Inner method',
-      callInner: function() {
+      callInner: function () {
         console.log('Inside the inner method function', this);
-      }
+      },
     };
   },
   arrow: () => {
@@ -28,17 +28,21 @@ const v = {
       val: 'Inner arrow func',
       arrowInner: () => {
         console.log('Inside the inner arrow function', this);
-      }
+      },
     };
   },
-  callOuter: function() {
+  callOuter: function () {
     let a = 'Arrow';
     console.log('Inside the arrow function', this);
     return {
       val: 'Inner arrow func',
       arrowInner: () => {
         console.log('Inside the inner arrow function', this);
-      }
+      },
     };
-  }
+  },
 };
+
+console.log(v.call().callInner());
+console.log(v.arrow().arrowInner());
+console.log(v.callOuter().arrowInner());
